@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2014-5-27 15:50:27 by Hibernate Tools 4.0.0 -->
+<hibernate-mapping>
+    <class name="com.sain.goodlife.api.entity.po.shiro.ShiroUsersRolesPoEntity" table="shiro_users_roles_t1" catalog="goodlife">
+        <composite-id name="id" class="com.sain.goodlife.api.entity.po.shiro.ShiroUsersRolesIdPoEntity">
+            <key-property name="userId" type="long">
+                <column name="user_id" />
+            </key-property>
+            <key-property name="roleId" type="long">
+                <column name="role_id" />
+            </key-property>
+            <key-property name="userType" type="byte">
+                <column name="user_type" />
+            </key-property>
+        </composite-id>
+        <property name="userFrom" type="string">
+            <column name="user_from" length="45">
+                <comment>&#211;&#195;&#187;&#167;&#203;&#249;&#202;&#244;&#177;&#237;&#195;&#251;</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>

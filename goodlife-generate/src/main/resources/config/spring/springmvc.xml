@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context
+		http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<!-- 默认的注解映射的支持 -->
+	<!-- 
+		<mvc:annotation-driven />
+	 -->
+
+	<!-- 自定义注解请求映射 -->
+	<bean class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping">
+		<!-- 
+		<property name="interceptors">
+			<list>
+				<ref bean="logNDCInteceptor" /> // 日志拦截器，这是你自定义的拦截器
+				<ref bean="myRequestHelperInteceptor" /> // RequestHelper拦截器，这是你自定义的拦截器
+				<ref bean="myPermissionsInteceptor" /> // 权限拦截器，这是你自定义的拦截器
+				<ref bean="myUserInfoInteceptor" /> // 用户信息拦截器，这是你自定义的拦截器
+			</list>
+		</property>
+		 -->
+	</bean>
+	<bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
+		<property name="messageConverters">
+			<list>
+				<ref bean="byteArray_hmc" />
+				<ref bean="string_hmc" />
+				<ref bean="resource_hmc" />
+				<ref bean="source_hmc" />
+				<ref bean="xmlAwareForm_hmc" />
+				<ref bean="jaxb2RootElement_hmc" />
+				<ref bean="jackson_hmc" />
+			</list>
+		</property>
+	</bean>
+	<bean id="byteArray_hmc" class="org.springframework.http.converter.ByteArrayHttpMessageConverter" /><!-- 处理.. -->
+	<bean id="string_hmc" class="org.springframework.http.converter.StringHttpMessageConverter" /><!-- 处理.. -->
+	<bean id="resource_hmc" class="org.springframework.http.converter.ResourceHttpMessageConverter" /><!-- 处理.. -->
+	<bean id="source_hmc" class="org.springframework.http.converter.xml.SourceHttpMessageConverter" /><!-- 处理.. -->
+	<bean id="xmlAwareForm_hmc" class="org.springframework.http.converter.xml.XmlAwareFormHttpMessageConverter" /><!-- 处理.. -->
+	<bean id="jaxb2RootElement_hmc" class="org.springframework.http.converter.xml.Jaxb2RootElementHttpMessageConverter" /><!-- 处理.. -->
+	<bean id="jackson_hmc" class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter" /><!-- 处理json -->
+	<!-- end 自定义注解请求映射 -->
+
+	<!-- 栾泽林的自定义注解请求映射 -->
+	<!-- 
+	<mvc:annotation-driven conversion-service="conversionService">
+		<mvc:message-converters register-defaults="true">
+			<beans:bean id="StringHttpMessageConverter" class="org.springframework.http.converter.StringHttpMessageConverter">
+				<beans:property name="supportedMediaTypes">
+					<beans:list>
+						<beans:value>text/plain;charset=UTF-8</beans:value>
+					</beans:list>
+				</beans:property>
+			</beans:bean>
+			<beans:bean id="fastJsonHttpMessageConverter" class="com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter">
+				<beans:property name="supportedMediaTypes">
+					<beans:list>
+						<beans:value>text/html;charset=UTF-8</beans:value>
+					</beans:list>
+				</beans:property>
+			</beans:bean>
+		</mvc:message-converters>
+		<mvc:argument-resolvers>
+			<beans:bean class="com.jowto.common.springmvc.PathParamWebArgumentRequestResolver">
+				<beans:property name="conversionService" ref="conversionService"></beans:property>
+			</beans:bean>
+		</mvc:argument-resolvers>
+	</mvc:annotation-driven>
+	<beans:bean id="conversionService" class="org.springframework.format.support.FormattingConversionServiceFactoryBean">
+		<beans:property name="converters">
+			<beans:list>
+				<beans:bean class="com.jowto.common.springmvc.DateConverter" />
+			</beans:list>
+		</beans:property>
+		<beans:property name="formatters">
+			<beans:list>
+				<beans:bean class="com.jowto.common.springmvc.DateFormatter"></beans:bean>
+			</beans:list>
+		</beans:property>
+	</beans:bean>
+	 -->
+
+	<import resource="classpath:config/spring/view/springmvc-action.xml"/>
+	<import resource="classpath:config/spring/view/springmvc-resolver-freemarker.xml"/>
+</beans>

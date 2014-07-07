@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>excel生成</title>
+<script type="text/javascript" src="${basic_url }/static/js/jQuery1.7.2.js"></script>
+<style type="text/css">
+	span.checked{
+		cursor: pointer;
+	}
+</style>
+</head>
+<body>
+	<h2>请选择表</h2>
+	<table>
+		<tr>
+			<td>
+				<input type="checkbox" id="check_all" name="check_all" value=""/><span for="check_all" class="checked"><b>全选</b></span>
+				<input type="checkbox" id="check_other" name="check_other" value=""/><span for="check_other" class="checked"><b>反选</b></span>
+			</td>
+		</tr>
+		[#list tables as table]
+		<tr>
+			<td>
+				<input type="checkbox" id="table_id_${table_index }" name="table_id" value="${table.tableName }"/><span for="table_id_${table_index }" class="checked"><b>${table.tableName }</b> -> [${table.tableComment }]</span>
+			</td>
+		</tr>
+		[/#list]
+	</table>
+	<input type="button" id="submit_btn" value="生成" />
+
+	<script type="text/javascript">
+		$(function(){
+			checkedLabelInit();
+			checkAllBtnInit();
+			checkOtherBtnInit();
+			submitBtnInit();
+		});
+
+		function checkedLabelInit(){
+			$("span.checked").each(function (i){
+				$(this).click(function(){
+					var checkedItem = $("#" + $(this).attr("for"));
+					checkedItem.click();
+				});
+			});
+		}
+
+		function checkAllBtnInit(){
+			$("#check_all").change(function(){
+				var checkStatus = $(this).prop("checked");
+				var tableCheckObjs = $("[name=table_id]");
+				tableCheckObjs.each(function(i){
+					if(checkStatus == true){
+						$(this).prop("checked", true);
+					} else {
+						$(this).prop("checked", false);
+					}
+				});
+			});
+		}
+
+		function checkOtherBtnInit(){
+			$("#check_other").change(function(){
+				var tableCheckObjs = $("[name=table_id]");
+				tableCheckObjs.each(function(i){
+					if($(this).prop("checked") == true){
+						$(this).prop("checked", false);
+					} else {
+						$(this).prop("checked", true);
+					}
+				});
+			});
+		}
+
+		function submitBtnInit(){
+			$("#submit_btn").click(function(){
+				$.ajax({
+					url : "${basic_url }/gExcel/generate.xhtml",
+					data : {
+						tableNames : getTableNames
+					},
+					dataType : "json",
+					type : "POST",
+					success : function(data, textStatus, jqXHR){
+						if(data.result == "1"){
+							alert("成功");
+						} else {
+							alert("失败");
+						}
+					}
+				});
+			});
+		}
+
+		function getTableNames(){
+			var tableNameArr = new Array();
+			var tableCheckedObjs = $("[name=table_id]:checked");
+			tableCheckedObjs.each(function(){
+				tableNameArr.push($(this).val());
+			});
+			return tableNameArr.join(",");
+		}
+	</script>
+</body>
+</html>

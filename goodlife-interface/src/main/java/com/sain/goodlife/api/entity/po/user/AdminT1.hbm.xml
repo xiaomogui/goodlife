@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2014-5-27 15:50:27 by Hibernate Tools 4.0.0 -->
+<hibernate-mapping>
+    <class name="com.sain.goodlife.api.entity.po.user.AdminPoEntity" table="admin_t1" catalog="goodlife">
+        <id name="id" type="long">
+            <column name="id" />
+            <generator class="assigned" />
+        </id>
+        <property name="AUsername" type="string">
+            <column name="a_username">
+                <comment>&#186;&#243;&#182;&#203;&#185;&#220;&#192;&#237;&#212;&#177;&#211;&#195;&#187;&#167;&#195;&#251;</comment>
+            </column>
+        </property>
+        <property name="APassword" type="string">
+            <column name="a_password">
+                <comment>&#186;&#243;&#182;&#203;&#185;&#220;&#192;&#237;&#212;&#177;&#195;&#220;&#194;&#235;</comment>
+            </column>
+        </property>
+        <property name="salt" type="string">
+            <column name="salt" length="100">
+                <comment>&#209;&#206;&#214;&#181;</comment>
+            </column>
+        </property>
+        <property name="isLocked" type="java.lang.Boolean">
+            <column name="is_locked">
+                <comment>&#202;&#199;&#183;&#241;&#203;&#248;&#182;&#168;(0-&#206;&#180;&#203;&#248;&#182;&#168;&#163;&#172;1-&#203;&#248;&#182;&#168;)</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>

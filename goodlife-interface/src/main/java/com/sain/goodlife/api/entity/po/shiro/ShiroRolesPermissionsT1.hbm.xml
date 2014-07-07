@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2014-5-27 15:50:27 by Hibernate Tools 4.0.0 -->
+<hibernate-mapping>
+    <class name="com.sain.goodlife.api.entity.po.shiro.ShiroRolesPermissionsPoEntity" table="shiro_roles_permissions_t1" catalog="goodlife">
+        <composite-id name="id" class="com.sain.goodlife.api.entity.po.shiro.ShiroRolesPermissionsIdPoEntity">
+            <key-property name="roleId" type="long">
+                <column name="role_id" />
+            </key-property>
+            <key-property name="permissionId" type="long">
+                <column name="permission_id" />
+            </key-property>
+        </composite-id>
+    </class>
+</hibernate-mapping>

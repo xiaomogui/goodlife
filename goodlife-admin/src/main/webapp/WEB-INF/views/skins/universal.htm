@@ -1,0 +1,196 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//dtD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/dtD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<HEAD>
+<META content="IE=11.0000" http-equiv="X-UA-Compatible">
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="style.css" rel="stylesheet" type="text/css">
+<link href="newstyle.css" rel="stylesheet" type="text/css"> 
+<script src="var.js" type="text/javascript"></script>
+<script src="jQuery1.7.2.js" type="text/javascript"></script>
+<script src="jquery.uploadify.v2.1.4.min.js" type="text/javascript"></script>
+<script src="iframes.js" type="text/javascript"></script>
+<script type="text/javascript">
+/*ajax执行*/
+var lang = 'cn';
+var metimgurl='cn/';
+var depth='';
+$(document).ready(function(){
+	ifreme_methei();
+});
+</script>
+ <!--[if lte IE 9]>
+<script language=JavaScript>  
+function killErrors() {  
+return true;  
+}  
+window.onerror = killErrors;  
+</script> 
+<![endif]--> 
+ 
+<META name="GENERATOR" content="MSHTML 11.00.9600.16518"></HEAD> 
+<body>
+<script type="text/javascript">
+function metreturn(url){
+	if(url){
+		location.href=url;
+	}else if($.browser.msie){
+		history.go(-1);
+	}else{
+		history.go(-1);
+	}
+}
+</script>
+	 
+<div class="top">
+  <div class="position">简体中文 &gt; 网站设置 &gt; <a href="http://test.abc.com/admin/system/universal.php?anyid=57&amp;lang=cn">通用设置</a></div>
+</div><!-- top end -->
+<div class="clear"></div>
+
+<script type="text/javascript">
+$("html",parent.document).find('.returnover').remove();
+</script>
+     
+<form name="myform" action="#" method="POST" target="_self">
+    <input name="action" type="hidden" value="modify">
+    <input name="deleteimg" type="hidden" value="0">
+    <input name="img_rename" type="hidden" value="0">
+    <div class="v52fmbx_tbmax v52fmbx_tbmaxmt">
+        <div class="v52fmbx_tbbox">
+            <div class="v52fmbx">
+
+<h3 class="v52fmbx_hr metsliding" sliding="1">功能相关</h3>
+<div class="sliding_box sliding_box_1">
+
+    <div class="v52fmbx_dlbox">
+        <dl>
+            <dt>回收站：</dt>
+            <dd>
+<label><input name="recycle" type="radio" value="1">开启</label>
+<label><input name="recycle" type="radio" value="0">关闭</label>
+<span class="tips">内容管理-回收站</span>
+            </dd>
+        </dl>
+    </div><!-- v52fmbx_dlbox end -->
+</div><!-- sliding_box_1 end -->
+
+
+<h3 class="v52fmbx_hr metsliding" sliding="2">后台操作</h3>
+<div class="sliding_box sliding_box_2">
+  <div class="v52fmbx_dlbox">
+    <dl>
+      <dt>自动重命名：</dt>
+      <dd>
+<label><input name="img_rename" class="checkbox" type="checkbox" checked="checked" value="1">对上传的文件名自动进行重名名</label>
+<span class="tips">重命名文件名称有利于减少异常</span>
+      </dd>
+    </dl>
+  </div><!-- v52fmbx_dlbox end -->
+  <div class="v52fmbx_dlbox v52fmbx_mo">
+    <dl>
+      <dt>自动删除图片：</dt>
+      <dd>
+<label><input name="deleteimg" class="checkbox" type="checkbox" value="1">开启后删除信息时将自动删除相应图片</label>
+      </dd>
+    </dl>
+  </div>
+</div><!-- sliding_box_2 end -->
+
+<h3 class="v52fmbx_hr metsliding" sliding="3">发件箱设置（站内所有邮件均由此邮箱发送，如会员密码找回邮件等）</h3>
+<div class="sliding_box sliding_box_3">
+
+<div class="v52fmbx_dlbox">
+    <dl>
+        <dt>发件人：</dt>
+        <dd>
+<input name="fd_fromname" class="text" type="text" value="ATO" autocomplete="off">
+<span class="tips">所显示的发件人姓名</span>
+        </dd>
+    </dl>
+</div><!-- v52fmbx_dlbox end -->
+
+<div class="v52fmbx_dlbox">
+    <dl>
+        <dt>邮箱账号：</dt>
+        <dd>
+<input name="fd_usename" class="text" type="text" value="test@test.com" autocomplete="off">
+<span class="tips">用于发送邮件的邮箱账号</span>
+        </dd>
+    </dl>
+</div><!-- v52fmbx_dlbox end -->
+
+<div class="v52fmbx_dlbox">
+    <dl>
+        <dt>邮箱密码：</dt>
+        <dd>
+<input name="fd_password" class="text" type="password" value="passwordhidden" autocomplete="off">
+<span class="tips">用于发送邮件的邮箱密码</span>
+        </dd>
+    </dl>
+</div><!-- v52fmbx_dlbox end -->
+
+
+<div class="v52fmbx_dlbox">
+    <dl>
+        <dt>SMTP：</dt>
+        <dd>
+<input name="fd_smtp" class="text" type="text" value="127.0.0.1" autocomplete="off">
+<span class="tips">如QQ邮箱为smtp.qq.com</span>
+        </dd>
+    </dl>
+</div><!-- v52fmbx_dlbox end -->
+
+<div class="v52fmbx_dlbox none hidebox1">
+    <dl>
+        <dt>发送端口：</dt>
+        <dd>
+<input name="fd_port" class="text" type="text" value="25" autocomplete="off">
+<span class="tips">用于邮件发送端口（咨询邮箱服务商获得，TLS一般为25，SSL一般为465）</span>
+        </dd>
+    </dl>
+</div><!-- v52fmbx_dlbox end -->
+
+<div class="v52fmbx_dlbox none hidebox1">
+    <dl>
+        <dt>发送方式：</dt>
+        <dd>
+<label><input name="fd_way" class="radio" type="radio" value="ssl">SSL服务方式</label>
+<label><input name="fd_way" class="radio" type="radio" checked="" value="tls">TLS服务方式</label>
+<span class="tips">默认邮箱服务方式为TLS（咨询空间商获得）<BR>如果使用TLS方式25端口无法发送邮件，请尝试使用SSL方式465端口发件</span>
+        </dd>
+    </dl>
+</div><!-- v52fmbx_dlbox end -->
+
+<div class="v52fmbx_dlbox">
+    <dl>
+        <dt></dt>
+        <dd>
+<a onClick="openhidebox($(this),$('.hidebox1'))" href="javascript:;">展开高级选项</a>
+        </dd>
+    </dl>
+</div><!-- v52fmbx_dlbox end -->
+
+
+
+<div class="v52fmbx_dlbox v52fmbx_mo">
+    <dl>
+        <dt>发送测试：</dt>
+        <dd>
+<a onClick="return emailtest($(this));" href="#">点击测试</a>
+<span id="emailtest"></span>
+        </dd>
+    </dl>
+</div><!-- v52fmbx_mo end -->
+
+
+</div><!-- sliding_box_3 end -->
+
+<div class="v52fmbx_submit"><input name="submit1" class="submit" onClick="return Smit($(this),'myform')" type="submit" value="保存"></div>
+
+            </div><!-- v52fmbx end -->
+        </div><!-- v52fmbx_tbbox end -->
+    </div><!-- v52fmbx_tbmax end -->
+</form>
+<div class="footer"></div>
+
+</body>
+</html>
